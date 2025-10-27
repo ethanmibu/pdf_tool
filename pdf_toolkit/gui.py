@@ -5,6 +5,30 @@ from .merge import merge_pdfs
 from .split import split_pdf
 from .config import load_config
 
+def can_launch_tkinter():
+    """
+    Return True if we can safely import tkinter AND create a root window
+    without exploding or triggering macOS dev tools prompts.
+
+    Return False if anything looks sketchy.
+    """
+    try:
+        import tkinter as tk  # try importing
+    except Exception:
+        return False
+
+    try:
+        # Try to create a root window in a "headless" way.
+        # We destroy it immediately. This will typically be the point
+        # where macOS's system python freaks out if Tk isn't configured.
+        root = tk.Tk()
+        root.withdraw()  # don't show it
+        root.destroy()
+    except Exception:
+        return False
+
+    return True
+
 class PDFToolkitGUI:
     def __init__(self, root):
         self.root = root
