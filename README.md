@@ -38,7 +38,7 @@ It was good for learning:
 ## Project structure
 
 ```text
-pdf-toolkit/
+pdf_project/
 ├─ pdf_toolkit/
 │  ├─ __init__.py
 │  ├─ __main__.py      # allows `python -m pdf_toolkit ...`
