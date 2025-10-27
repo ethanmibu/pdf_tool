@@ -64,7 +64,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
---- 
+---
 
 ## Merge PDFs
 
@@ -130,6 +130,24 @@ python -m pdf_toolkit gui
 ```
 
 ---
+
+## Install as a CLI tool
+
+You can also install this project directly using pip (no need to clone the repo):
+
+```bash
+python3 -m venv pdfenv
+source pdfenv/bin/activate
+pip install git+https://github.com/ethanmibu/pdf_tool.git
+```
+
+Once installed, you can use CLI commands:
+```bash
+pdf_toolkit merge input1.pdf input2.pdf -o output/merged.pdf
+pdf_toolkit split input.pdf --range 3 10
+pdf_toolkit gui
+```
+--- 
 
 ### macOS note
 On some macOS Python builds (especially the Xcode/Command Line Tools Python), launching the Tk GUI can fail with a Tcl/Tk version error.  

@@ -3,7 +3,7 @@ requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pdf-tool"
+name = "pdf_tool"
 version = "0.1.0"
 description = "Local PDF merge/split CLI and optional GUI (no upload required)"
 readme = "README.md"
@@ -23,4 +23,4 @@ keywords = ["pdf", "merge", "split", "cli", "privacy", "local"]
 Homepage = "https://github.com/ethanmibu/pdf_tool"
 
 [project.scripts]
-pdf-tool = "pdf_toolkit.cli:main"
+pdf_toolkit = "pdf_toolkit.cli:main"
