@@ -139,6 +139,7 @@ You can also install this project directly using pip (no need to clone the repo)
 python3 -m venv pdfenv
 source pdfenv/bin/activate
 pip install git+https://github.com/ethanmibu/pdf_tool.git
+pdf_toolkit --help
 ```
 
 Once installed, you can use CLI commands:
