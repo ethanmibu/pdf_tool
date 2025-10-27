@@ -12,5 +12,5 @@ __pycache__/
 .pytest_cache/
 
 # generated PDFs
-input/*.pdf
-output/*.pdf
+# input/*.pdf
+# output/*.pdf
