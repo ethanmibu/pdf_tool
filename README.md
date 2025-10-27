@@ -1,6 +1,7 @@
 # pdf-toolkit
 
-Small Python ClI tool for merging and splitting PDF files.
+Small Python CLI tool for merging and splitting PDF files.
+![tests](https://github.com/ethanmibu/pdf_tool/actions/workflows/tests.yml/badge.svg)
 
 ## Why I built this
 I wanted a lightweight, local alternative to online “merge your PDFs” websites (which are sketchy for things like transcripts, IDs, contracts, etc.). This project is written in pure Python, uses `pypdf`, and exposes a simple CLI so you can do common PDF ops from the Terminal.
