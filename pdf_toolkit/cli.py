@@ -4,15 +4,8 @@ from .merge import merge_pdfs
 from .split import split_pdf
 from .config import load_config
 
-
 def resolve_input_path(p: str, input_dir: Path, output_dir: Path) -> Path:
-    """
-    Try to resolve a user-supplied file path.
-    Priority:
-    1. literal path they gave
-    2. <input_dir>/<their path>
-    3. <output_dir>/<their path>
-    """
+    """Resolve file path by checking input_dir and output_dir."""
     path = Path(p)
     if path.exists():
         return path
@@ -95,7 +88,7 @@ def main():
 
     args = parser.parse_args()
 
-    # ----- GUI MODE -----
+    # GUI MODE
     if args.command == "gui":
         if not args.force:
             print(
@@ -122,7 +115,7 @@ def main():
         launch_gui()
         return
 
-    # ----- MERGE MODE -----
+    # MERGE MODE
     if args.command == "merge":
         resolved_inputs = [
             resolve_input_path(p, input_dir, output_dir)
@@ -132,7 +125,7 @@ def main():
         print(f"✅ Merged into {args.output}")
         return
 
-    # ----- SPLIT MODE -----
+    # SPLIT MODE
     if args.command == "split":
         resolved_input = resolve_input_path(args.input, input_dir, output_dir)
 
