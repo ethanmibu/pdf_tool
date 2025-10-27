@@ -26,7 +26,7 @@ It was good for learning:
 - **Split PDFs**
   - Export every single page as its own PDF
   - OR extract just a selected page range
-  
+
 - **CLI-first design**
   - No GUI needed, just run commands
 - **Tested**
@@ -47,7 +47,7 @@ pdf-toolkit/
 ├─ tests/
 │  ├─ test_merge.py
 │  └─ test_split.py
-├─ examples/
+├─ examples/           # included in gitignore
 │  ├─ sample1.pdf
 │  ├─ sample2.pdf
 │  └─ demo_output.pdf  (generated example, usually gitignored)
