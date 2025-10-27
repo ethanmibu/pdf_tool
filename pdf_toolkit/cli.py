@@ -3,6 +3,7 @@ from pathlib import Path
 from .merge import merge_pdfs
 from .split import split_pdf
 from .config import load_config
+from . import __version__
 
 def resolve_input_path(p: str, input_dir: Path, output_dir: Path) -> Path:
     """Resolve file path by checking input_dir and output_dir."""
