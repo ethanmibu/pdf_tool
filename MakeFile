@@ -1,0 +1,14 @@
+.PHONY: install test run-merge run-split
+
+install:
+	python3 -m venv .venv
+	source .venv/bin/activate && pip install -r requirements.txt
+
+test:
+	source .venv/bin/activate && python -m pytest
+
+run-merge:
+	source .venv/bin/activate && python -m pdf_toolkit merge examples/sample1.pdf examples/sample2.pdf -o output/merged.pdf
+
+run-split:
+	source .venv/bin/activate && python -m pdf_toolkit split examples/sample1.pdf --all -d output/

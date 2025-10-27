@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# venv
+.venv/
+
+# bytecode
+__pycache__/
+*.pyc
+
+# test cache
+.pytest_cache/
+
+# generated PDFs
+examples/
+examples/demo_output.pdf
+output/*.pdf
