@@ -37,26 +37,30 @@ It was good for learning:
 
 ## Project structure
 
+
 ```text
 pdf_project/
 ├─ pdf_toolkit/
 │  ├─ __init__.py
 │  ├─ __main__.py      # allows `python -m pdf_toolkit ...`
-│  ├─ cli.py           # command-line parsing / routing
+│  ├─ cli.py           # CLI entry point / subcommands
+│  ├─ config.py        # loads config.json defaults
 │  ├─ merge.py         # merge_pdfs()
-│  └─ split.py         # split_pdf()
+│  ├─ split.py         # split_pdf()
+│  └─ gui.py           # tkinter GUI launcher / UI logic
 ├─ tests/
 │  ├─ test_merge.py
 │  └─ test_split.py
-├─ input/              # included in gitignore
+├─ input/              # default input folder (you drop PDFs here)
 │  ├─ sample1.pdf
 │  └─ sample2.pdf
-├─ output/             # included in gitignore
-│  └─ output.pdf
+├─ output/             # default output folder (tool writes here)
+│  └─ merged.pdf
+├─ config.json         # user config for default dirs
 ├─ requirements.txt
 ├─ .gitignore
 ├─ README.md
-├─ MakeFile
+├─ Makefile
 └─ LICENSE
 
 ---

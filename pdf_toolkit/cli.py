@@ -25,7 +25,6 @@ def resolve_input_path(p: str, input_dir: Path, output_dir: Path) -> Path:
     if alt_out.exists():
         return alt_out
 
-    # fall back to whatever they gave; downstream code will raise a clean error
     return path
 
 
@@ -41,7 +40,19 @@ def main():
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    # MERGE subcommand
+    # gui subcommand
+    gui_parser = subparsers.add_parser(
+        "gui",
+        help="Open the PDF Toolkit GUI (may require a Tk-compatible Python install)"
+    )
+    gui_parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Actually attempt to start the tkinter GUI. "
+             "Without this flag, we just print guidance instead of launching."
+    )
+
+    # merge subcommand
     merge_parser = subparsers.add_parser("merge", help="Merge multiple PDFs")
     merge_parser.add_argument(
         "inputs",
@@ -55,7 +66,7 @@ def main():
         help=f"Output PDF path (default: {output_dir}/merged.pdf)"
     )
 
-    # SPLIT subcommand
+    # split subcommand
     split_parser = subparsers.add_parser("split", help="Split a PDF")
     split_parser.add_argument(
         "input",
@@ -84,7 +95,34 @@ def main():
 
     args = parser.parse_args()
 
-    # handle merge
+    # ----- GUI MODE -----
+    if args.command == "gui":
+        if not args.force:
+            print(
+                "GUI mode is optional and requires a Tk-compatible Python build.\n"
+                "Your system Python may terminate when initializing tkinter on some macOS versions.\n\n"
+                "To attempt launching the GUI anyway, run:\n"
+                "    python -m pdf_toolkit gui --force\n\n"
+                "All PDF merge/split features are still available via the CLI."
+            )
+            return
+
+        # Only import tkinter and attempt launch if explicitly forced
+        try:
+            from .gui import launch_gui
+        except Exception as e:
+            print(
+                "Could not import GUI components. You can still use the CLI.\n"
+                f"Details: {e}"
+            )
+            return
+
+        # launch_gui may still crash the interpreter on broken Tk setups.
+        # That's now an opt-in risk.
+        launch_gui()
+        return
+
+    # ----- MERGE MODE -----
     if args.command == "merge":
         resolved_inputs = [
             resolve_input_path(p, input_dir, output_dir)
@@ -94,7 +132,7 @@ def main():
         print(f"✅ Merged into {args.output}")
         return
 
-    # handle split
+    # ----- SPLIT MODE -----
     if args.command == "split":
         resolved_input = resolve_input_path(args.input, input_dir, output_dir)
 
