@@ -58,3 +58,77 @@ pdf_project/
 ├─ README.md
 ├─ MakeFile
 └─ LICENSE
+
+---
+
+## Configuration
+
+Defaults are controlled by `config.json` in the project root:
+
+```json
+{
+  "input_dir": "input",
+  "output_dir": "output"
+}
+
+you can change these anytime, just rename "input_dir" and "output_dir" to your input and output folders in the root
+
+example:
+{
+  "input_dir": "incoming_pdfs",
+  "output_dir": "processed_pdfs"
+}
+
+---
+
+## Setup
+
+git clone https://github.com/ethanmibu/pdf_tool.git
+cd pdf_tool
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+--- 
+
+## Merge PDFs
+
+Combine multiple PDFs (from your configured input_dir) into one:
+python -m pdf_toolkit merge input1.pdf input2.pdf
+
+Output:
+Merged into output/merged.pdf
+
+You can also specify a custom output filename:
+python -m pdf_toolkit merge input1.pdf input2.pdf -o output/custom_name.pdf
+
+---
+
+## Split PDF
+
+all pages:
+python -m pdf_toolkit split input.pdf --all
+
+Output:
+Created:
+ - output/page_1.pdf
+ - output/page_2.pdf
+ - ...
+
+---
+
+## Split PDF (Page Range)
+
+Extract a specific range:
+python -m pdf_toolkit split input.pdf --range 3 10
+
+Output:
+Created:
+ - output/pages_3_to_10.pdf
+
+---
+
+## Works with any directory
+
+For example, if your PDFs are in your downloads folder:
+python -m pdf_toolkit merge ~/Downloads/input1.pdf ~/Downloads/input2.pdf -o ~/Desktop/merged.pdf
