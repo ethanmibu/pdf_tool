@@ -132,3 +132,23 @@ Created:
 
 For example, if your PDFs are in your downloads folder:
 python -m pdf_toolkit merge ~/Downloads/input1.pdf ~/Downloads/input2.pdf -o ~/Desktop/merged.pdf
+
+---
+
+## Graphical Interface (GUI)
+
+You can also launch a simple drag-and-drop style interface built with tkinter:
+python -m pdf_toolkit gui
+
+---
+
+### macOS note
+On some macOS Python builds (especially the Xcode/Command Line Tools Python), launching the Tk GUI can fail with a Tcl/Tk version error.  
+If that happens, you can still use the full CLI, or create a virtual environment from a Homebrew-installed Python (which bundles a compatible Tk), then run:
+
+```bash
+brew install python@3.12
+/opt/homebrew/bin/python3.12 -m venv gui_venv
+source gui_venv/bin/activate
+pip install -r requirements.txt
+python -m pdf_toolkit gui
