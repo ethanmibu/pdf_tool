@@ -76,6 +76,8 @@ python -m pdf_toolkit merge input1.pdf input2.pdf
 Output:
 Merged into output/merged.pdf
 
+---
+
 You can also specify a custom output filename:
 ```bash
 python -m pdf_toolkit merge input1.pdf input2.pdf -o output/custom_name.pdf
