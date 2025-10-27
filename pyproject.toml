@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-tool"
+version = "0.1.0"
+description = "Local PDF merge/split CLI and optional GUI (no upload required)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Ethan Mibu" }
+]
+
+dependencies = [
+  "pypdf>=5.0.0",
+]
+
+keywords = ["pdf", "merge", "split", "cli", "privacy", "local"]
+
+[project.urls]
+Homepage = "https://github.com/ethanmibu/pdf_tool"
+
+[project.scripts]
+pdf-tool = "pdf_toolkit.cli:main"
