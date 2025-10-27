@@ -48,11 +48,13 @@ pdf_project/
 ├─ tests/
 │  ├─ test_merge.py
 │  └─ test_split.py
-├─ examples/           # included in gitignore
+├─ input/              # included in gitignore
 │  ├─ sample1.pdf
-│  ├─ sample2.pdf
-│  └─ demo_output.pdf  (generated example, usually gitignored)
+│  └─ sample2.pdf
+├─ output/             # included in gitignore
+│  └─ output.pdf
 ├─ requirements.txt
 ├─ .gitignore
 ├─ README.md
+├─ MakeFile
 └─ LICENSE
