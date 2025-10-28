@@ -14,3 +14,5 @@ __pycache__/
 # generated PDFs
 # input/*.pdf
 # output/*.pdf
+
+pdf_toolkit.egg-info/
