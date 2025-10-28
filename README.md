@@ -54,13 +54,25 @@ example:
 
 ---
 
-## Setup
+## MacOS Setup
 
 ```bash
 git clone https://github.com/ethanmibu/pdf_tool.git
 cd pdf_tool
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+---
+
+## Windows Setup
+
+```bash
+git clone https://github.com/ethanmibu/pdf_tool.git
+cd pdf_tool
+python3 -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
